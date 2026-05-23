@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EDGE | Home Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&amp;family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 28, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(210, 205, 175, 0.1);
+        }
+        .gold-glow {
+            box-shadow: 0 0 15px rgba(242, 202, 80, 0.15);
+        }
+        body {
+            background-color: #000000;
+            color: #e2e2e2;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #131313;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #f2ca50;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface": "#e2e2e2",
+                      "error-container": "#93000a",
+                      "on-primary-fixed-variant": "#574500",
+                      "tertiary-container": "#b4b2b2",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-tertiary": "#313030",
+                      "surface-bright": "#393939",
+                      "on-secondary-container": "#b6b8bc",
+                      "background": "#131313",
+                      "inverse-surface": "#e2e2e2",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#c8c6c5",
+                      "surface-container-highest": "#353535",
+                      "on-tertiary-fixed": "#1b1b1b",
+                      "on-primary": "#3c2f00",
+                      "on-secondary-fixed-variant": "#44474a",
+                      "primary-fixed": "#ffe088",
+                      "on-secondary": "#2d3134",
+                      "on-tertiary-container": "#454544",
+                      "secondary": "#c4c7ca",
+                      "primary-container": "#d4af37",
+                      "surface-container-low": "#1b1b1b",
+                      "surface-container-high": "#2a2a2a",
+                      "outline-variant": "#4d4635",
+                      "surface-tint": "#e9c349",
+                      "surface-dim": "#131313",
+                      "on-surface-variant": "#d0c5af",
+                      "surface-container": "#1f1f1f",
+                      "tertiary-fixed": "#e5e2e1",
+                      "inverse-primary": "#735c00",
+                      "outline": "#99907c",
+                      "secondary-fixed": "#e0e2e6",
+                      "secondary-container": "#46494d",
+                      "on-secondary-fixed": "#191c1f",
+                      "surface": "#131313",
+                      "primary": "#f2ca50",
+                      "on-error-container": "#ffdad6",
+                      "surface-variant": "#353535",
+                      "tertiary": "#d0cdcd",
+                      "inverse-on-surface": "#303030",
+                      "on-primary-fixed": "#241a00",
+                      "error": "#ffb4ab",
+                      "secondary-fixed-dim": "#c4c7ca",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-primary-container": "#554300",
+                      "on-tertiary-fixed-variant": "#474746",
+                      "on-background": "#e2e2e2"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "container-margin-mobile": "20px",
+                      "container-margin-desktop": "40px",
+                      "section-gap": "64px",
+                      "unit": "8px",
+                      "gutter": "24px"
+              },
+              "fontFamily": {
+                      "headline-lg": ["Sora"],
+                      "body-md": ["Hanken Grotesk"],
+                      "headline-md": ["Sora"],
+                      "display-hero": ["Sora"],
+                      "headline-lg-mobile": ["Sora"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "label-data": ["JetBrains Mono"],
+                      "label-caps": ["Sora"]
+              },
+              "fontSize": {
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-md": ["20px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                      "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                      "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "label-data": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background font-body-md text-on-surface pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-titanium-silver/10 flex justify-between items-center px-container-margin-mobile md:px-container-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-primary active:scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-display-hero text-headline-md text-primary tracking-tighter">EDGE</h1>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-8">
+<a class="font-label-caps text-label-caps text-primary transition-colors" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Workouts</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Classes</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">Stats</a>
+</nav>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest overflow-hidden border border-primary/20">
+<img alt="Member Profile" class="w-full h-full object-cover" data-alt="A professional close-up portrait of a fit, determined man in high-end athletic apparel against a dark, moody gym background with warm amber backlighting. The aesthetic is cinematic and high-contrast, featuring deep blacks and golden highlights on his features, conveying a sense of focus, elite status, and discipline. Professional studio lighting emphasizes the sharp contours of his face in a luxury fitness environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzllyDNLq9qLhh5LMUrHPiks8m36j-9dNOfiYnpQmad5VD6UMoBGTo2TDW5glOxnRWgSkkmtIXJlNXi5rePcB3CgAToGVmTpRwh49jY_3Rt3xqYwQz7Ykvi1xO7zf4dG5pIAdMdsuDa_WvkdG6rI21mGp-cAu8pnSDfMKIVSM4obL0LFAHb4-2j0h5nqStGMqA1KpJLTy7y4c2Gk7vfa_BK0Lf3H_BhI0XA8NOT2bVXGSDEgjhbg79eeQ1i-b2MR56uDF6tXItkSM"/>
+</div>
+</div>
+</header>
+<main class="mt-20 px-container-margin-mobile md:px-container-margin-desktop max-w-[1440px] mx-auto">
+<!-- Hero Greeting -->
+<section class="py-8 md:py-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
+<h2 class="font-display-hero text-headline-lg-mobile md:text-display-hero text-on-surface">Hello, Julian.</h2>
+<p class="font-body-lg text-on-surface-variant mt-2 max-w-2xl italic">"The only limit is the one you set yourself. Push past the noise and find your edge today."</p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Next Workout (Primary) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-xl glass-panel p-8 flex flex-col justify-between min-h-[320px] transition-all hover:border-primary/30">
+<div class="absolute inset-0 z-0 opacity-20 grayscale transition-all group-hover:scale-105 group-hover:opacity-30">
+<img alt="Workout background" class="w-full h-full object-cover" data-alt="A high-action, cinematic shot of a focused athlete performing an explosive heavy lift in a dimly lit, luxury industrial gym. The scene is drenched in deep obsidian tones with sharp golden highlights reflecting off steel equipment and muscular definition. Soft atmospheric smoke caught in amber light beams adds depth and a sense of intense physical effort and elite performance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDImYdYZ9u_gEgJ3F1Vkf5Lbw4aLe0FvZvFLFx11qcAqNGu4zxYtDk5UGXLW4fNFiR3_Jez69vPrGccsVZnnxf4gwtuR8-DKQqO4KycRBGXjrbFlbDrxDjfwbQMWKdiiFf63GB9ZQ8Bu8gXnOW2BfQNstcXcvve0_SjvmqjEFtRzittcrH7x5aQD11xdcM-xsmuiKvPjpSw_FflFfsbCtkJ67Fppo4YnnmdlwR7-n9wTPE8_l8tr-vjjVInUC_etjx78yOoZw0BZbk"/>
+</div>
+<div class="relative z-10">
+<span class="font-label-caps text-label-caps text-primary bg-primary/10 px-3 py-1 rounded-full">Next Workout</span>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-4">Upper Body Power</h3>
+<p class="font-body-md text-on-surface-variant mt-1">Focused on explosive strength and hypertrophy</p>
+</div>
+<div class="relative z-10 flex justify-between items-end mt-8">
+<div>
+<div class="flex items-center gap-2 text-on-surface-variant mb-2">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span class="font-label-data text-label-data uppercase tracking-widest">45 Minutes</span>
+</div>
+<button class="bg-primary text-on-primary font-label-caps text-label-caps px-8 py-4 rounded-lg gold-glow hover:bg-primary-container transition-colors active:scale-95 duration-200">START SESSION</button>
+</div>
+<div class="hidden md:block">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-background bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up of a professional fitness trainer in dark gear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqDf2tc-NnYsrY_BFv3M4ucCqDJ_imSY4_vY_YKFkT4Iti9_W5OJW2tbEYU_roC1nkVbDyvs96bfw_hhLKzQ9mH0TQtapD7d2zcRbOgpP0jhN2QYGfcHrx9PygpxMoM_4FBugQBcPbIwSj1WRCP1y37t78NyteAeXxlrJZuG1wtFG50o29fN26CznGhH-UxVHve2-ivWQdr5ULevbi96-IQULr3Llj1Y1nyk9-HWzIdTGzAxMoZ--uLrtrZGcw7smGgYezfhfeuuE"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-background bg-primary flex items-center justify-center font-bold text-xs text-on-primary">+3</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Membership Status -->
+<div class="md:col-span-4 rounded-xl glass-panel p-6 border-l-4 border-primary">
+<div class="flex flex-col h-full justify-between">
+<div>
+<div class="flex justify-between items-start">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Membership</span>
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<h4 class="font-headline-md text-headline-md text-on-surface mt-2">Elite Active</h4>
+<p class="font-label-data text-label-data text-primary-container mt-1">VALID UNTIL DEC 2024</p>
+</div>
+<div class="mt-8">
+<div class="flex justify-between text-xs font-bold text-on-surface-variant mb-2">
+<span>MONTHLY USAGE</span>
+<span>85%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%] rounded-full shadow-[0_0_8px_rgba(242,202,80,0.5)]"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-4 leading-relaxed uppercase tracking-widest">Complimentary recovery session available this week.</p>
+</div>
+</div>
+</div>
+<!-- Stats Widgets -->
+<div class="md:col-span-4 lg:col-span-3 rounded-xl glass-panel p-6 group hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-error-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Heart Rate</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg-mobile text-on-surface">68</span>
+<span class="font-label-data text-label-data text-on-surface-variant">BPM</span>
+</div>
+<div class="mt-4 h-12 flex items-end gap-1">
+<div class="flex-1 bg-primary/20 h-[30%] rounded-sm"></div>
+<div class="flex-1 bg-primary/20 h-[45%] rounded-sm"></div>
+<div class="flex-1 bg-primary/20 h-[35%] rounded-sm"></div>
+<div class="flex-1 bg-primary/40 h-[60%] rounded-sm"></div>
+<div class="flex-1 bg-primary/30 h-[50%] rounded-sm"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-sm animate-pulse"></div>
+<div class="flex-1 bg-primary/50 h-[65%] rounded-sm"></div>
+</div>
+</div>
+<div class="md:col-span-4 lg:col-span-3 rounded-xl glass-panel p-6 group hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Calories</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg-mobile text-on-surface">1,240</span>
+<span class="font-label-data text-label-data text-on-surface-variant">KCAL</span>
+</div>
+<div class="mt-4 flex justify-between items-center text-[10px] text-on-surface-variant">
+<span>DAILY GOAL</span>
+<span class="text-primary">82%</span>
+</div>
+<div class="mt-2 w-full h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[82%]"></div>
+</div>
+</div>
+<div class="md:col-span-4 lg:col-span-3 rounded-xl glass-panel p-6 group hover:bg-surface-container-low transition-colors">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-lg bg-secondary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Attendance</span>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg-mobile text-on-surface">18</span>
+<span class="font-label-data text-label-data text-on-surface-variant">SESSIONS</span>
+</div>
+<div class="mt-4 flex items-center gap-1">
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-surface-container-highest"></div>
+<span class="text-[10px] text-on-surface-variant ml-2">4/5 THIS WEEK</span>
+</div>
+</div>
+<div class="md:col-span-12 lg:col-span-3 rounded-xl glass-panel p-6 bg-primary/5 border border-primary/20">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-primary">trending_up</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">7-Day Streak</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="text-2xl font-bold text-primary font-label-data">CONSISTENT</div>
+<p class="font-body-md text-on-surface-variant text-sm">You are in the top 5% of active members this week.</p>
+</div>
+<div class="mt-4 flex gap-1 justify-between">
+<div class="w-7 h-7 rounded bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">M</div>
+<div class="w-7 h-7 rounded bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">T</div>
+<div class="w-7 h-7 rounded bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">W</div>
+<div class="w-7 h-7 rounded bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">T</div>
+<div class="w-7 h-7 rounded bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">F</div>
+<div class="w-7 h-7 rounded bg-primary flex items-center justify-center text-[10px] font-bold text-on-primary">S</div>
+<div class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-[10px] font-bold text-on-surface-variant">S</div>
+</div>
+</div>
+<!-- Upcoming Class -->
+<div class="md:col-span-12 rounded-xl glass-panel overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/3 h-48 md:h-auto relative">
+<img alt="Class background" class="w-full h-full object-cover grayscale brightness-50" data-alt="A wide-angle cinematic shot of a luxury HIIT studio with sleek, modern exercise equipment and neon amber accents glowing in a dark environment. The floor is polished obsidian, and the air has a fine misty atmospheric effect. Professional lighting creates a dramatic, high-energy mood, emphasizing pristine cleanliness and premium fitness design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9MuyxNPftMVYsHgUCu-6Am4KNi-08-Rh79jqSRrccjiCHAiECtfhxvMOYRLbvs3bmVpjdZ0IWRQPsSk7oMhMhQRSsM-ze-TnSxeiNRiqaynymj-HY5sBnCtkIXVZQtQpi0omITJx3lXkmTR-W1JAInzTn2cBm_Wf--AgQ8A5P0IcXxiyYDu53GG-HdVdN9e-y_nBOHBaauM2WBz6Zil-tSuV4FaYjRjASIPxYsdDJA-NAkp1MwQxqmxgWfucEPAkrQFWhOnqP1iQ"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<span class="font-label-caps text-label-caps text-primary border border-primary px-4 py-2 bg-black/40 backdrop-blur-md">TODAY AT 6:00 PM</span>
+</div>
+</div>
+<div class="p-8 flex-1 flex flex-col justify-center">
+<div class="flex justify-between items-start">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant tracking-[0.2em]">UPCOMING CLASS</span>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mt-2">Elite HIIT Performance</h3>
+</div>
+<div class="hidden md:block text-right">
+<span class="font-label-caps text-label-caps text-on-surface-variant block">INSTRUCTOR</span>
+<span class="font-body-md text-on-surface font-semibold">Sarah Jenkins</span>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">timer</span>
+<span class="font-label-data text-label-data text-on-surface-variant">60 MIN</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">group</span>
+<span class="font-label-data text-label-data text-on-surface-variant">12 SPOTS LEFT</span>
+</div>
+<button class="ml-auto bg-transparent border border-titanium-silver/30 text-on-surface font-label-caps text-label-caps px-6 py-3 rounded hover:bg-primary hover:text-on-primary hover:border-primary transition-all duration-300">MANAGE BOOKING</button>
+</div>
+</div>
+</div>
+<!-- Trainer Carousel -->
+<div class="md:col-span-12 mt-12 mb-8">
+<div class="flex justify-between items-end mb-6">
+<div>
+<span class="font-label-caps text-label-caps text-primary">PERSONALISED</span>
+<h2 class="font-headline-lg text-headline-lg-mobile text-on-surface mt-1">Recommended Trainers</h2>
+</div>
+<button class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors flex items-center gap-2">
+                        VIEW ALL <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="flex gap-gutter overflow-x-auto pb-6 scrollbar-hide snap-x">
+<!-- Trainer 1 -->
+<div class="min-w-[280px] snap-start glass-panel rounded-xl overflow-hidden group">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" data-alt="A professional athletic trainer with a muscular build, wearing premium performance wear, posing in a dark, luxury gym setting. Dramatic Rembrandt lighting creates sharp shadows and highlights his form. The background features high-end fitness equipment partially obscured in a soft, golden bokeh. Cinematic and elite visual style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPzfoNWcnaG242agsjKfF7cpY3svYcUBtTv8HS1j_FP45DmKEraHNAwNVm7-r2LedCXznyQfST4jme8PHpSPESOQRetlrBGnzJ7TwcqrNviSrVx0lf4ex2_NqpWnFX_Ppl4MQiLh5VJtyguU62gGOFcwZQjfbN3jIwFMt4FdbPlIj4_4I-l16seSjkL-RMYyQ13LoQUhTovwkc9PuVZiFHkdiv4pd-vwvzi0fqj8GXs4_fCYcCh8TiP8hRU5YRQDSQAIaIshlQipc"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+<h4 class="font-headline-md text-on-surface">Marcus Thorne</h4>
+<p class="font-label-caps text-[10px] text-primary">STRENGTH &amp; CONDITIONING</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-low">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-data text-xs">4.9</span>
+</div>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Trainer 2 -->
+<div class="min-w-[280px] snap-start glass-panel rounded-xl overflow-hidden group">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" data-alt="A fit female trainer in sleek, minimalist activewear, smiling confidently in a high-end wellness club studio. The lighting is soft and airy but maintain the dark-mode aesthetic with deep shadow depth. Her pose is professional and inviting. Premium textures and subtle golden light accents emphasize a high-performance wellness environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY9mpi-M0FGfu47rfSqSTUdAtH7ZlVNtpqD38PWJylHpQ3dUoAf7HJoJ5mDoU_51ZFRLijE9rIV_fDFs2B7w43v3NM1Ib4fqUr1KP4W9HV8SH8bhzlwxWwQ5yXzge_0ZH4DR2GbpH7RAW6LvrPQTg-GY9Q-vC0W0mCybIlLb7wCUCfSmC85gk0Ei2KpgWtNKX-RpQ3sBS5Ss0ObFoM1y5aGmaF5sbqKJ1uO4v61675gexaEFWLgG7T6O935JtPq0vryZVxdslHwg0"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+<h4 class="font-headline-md text-on-surface">Elena Rodriguez</h4>
+<p class="font-label-caps text-[10px] text-primary">FUNCTIONAL FLOW</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-low">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-data text-xs">5.0</span>
+</div>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Trainer 3 -->
+<div class="min-w-[280px] snap-start glass-panel rounded-xl overflow-hidden group">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" data-alt="A focused male performance coach in high-tech training apparel, standing in a dark, atmospheric private gym. The shot is high-contrast with a focus on discipline and expertise. Sharp rim lighting separates him from the dark background, with a subtle golden glow illuminating high-performance tracking screens in the distance." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpRQxH-Igb-hmujdwpgEuUCm1skI4DXwDcVnpY_Spahi33Y3GySyi0rnsiHoFVSyl6esIAtyJHZyDGysjrQ_gVVzp-ToNlBxvVXbNllGopaqsdO35JGRXRDwkiia8f8c6QY3FT0Y61TiXeg56-gY2YcVKZauek5cW3LtMe_8fLatk36wXq5GF0HGsbRNcXMPB9fA4nXeS1lXjDrpuGW0MSsSkhER_PZoF6FOwgV76dUqGKCVzVkjH2hCDbcJHzYP_FQmsa5kY4HtA"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+<h4 class="font-headline-md text-on-surface">David Chen</h4>
+<p class="font-label-caps text-[10px] text-primary">POWERLIFTING</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-low">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-data text-xs">4.8</span>
+</div>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Trainer 4 -->
+<div class="min-w-[280px] snap-start glass-panel rounded-xl overflow-hidden group">
+<div class="h-64 relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" data-alt="A professional Yoga and Pilates instructor with a calm, focused expression. She is in a darkened studio with premium wood accents and golden ambient light. The cinematic style is low-energy but high-sophistication, featuring a clean, minimalist environment that suggests a premium, private club experience." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0HXxqjmz29K5szV1tGuOOaK3T1jUmx4OpJr9tdJXq5HZyjPOW1a5gopErhR1iYQiRS-Ijckzmms_BVwFP_iiy0hTNTspG5T8ePukkH-b_NT8ZDyX7orWFoZlj-TtxTrcZgIe6ri39EAMwvEgZ49lVtmju5il8V0kCo5I2f0F6OGY11i4DGaStYNpgB2phmvPvRj4EENUgSar27t-mIiyRhXVuJsoVTJCp0jeA2-3qTaZeru4vECsgYlqyV_OUP1PMtCZBvdO2ZxM"/>
+<div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
+<h4 class="font-headline-md text-on-surface">Sophia Vance</h4>
+<p class="font-label-caps text-[10px] text-primary">RECOVERY &amp; MOBILITY</p>
+</div>
+</div>
+<div class="p-4 flex justify-between items-center bg-surface-container-low">
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-data text-xs">5.0</span>
+</div>
+<button class="text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 bg-surface/80 backdrop-blur-2xl border-t border-white/5 rounded-t-xl shadow-[0_-4px_20px_rgba(242,202,80,0.05)] flex justify-around items-center h-20 px-4 pb-safe">
+<a class="flex flex-col items-center justify-center text-primary bg-primary/10 rounded-full px-4 py-1 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">fitness_center</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Workouts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Classes</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Stats</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-on-surface transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-caps text-[10px] uppercase mt-1">Profile</span>
+</a>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed right-6 bottom-24 md:bottom-10 z-40 w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center gold-glow shadow-2xl active:scale-90 transition-transform md:hover:scale-110">
+<span class="material-symbols-outlined" style="font-variation-settings: 'wght' 600;">add</span>
+</button>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Entrance animations for scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100');
+                    entry.target.classList.remove('opacity-0', 'translate-y-4');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-panel').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-4', 'transition-all', 'duration-700');
+            observer.observe(el);
+        });
+    </script>
+</body></html>
