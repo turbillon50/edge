@@ -1,0 +1,189 @@
+/* EDGE UI shared layer
+ * - Touch optimisation
+ * - Light/Dark theme overrides
+ * - Floating control panel
+ */
+
+/* ---------- Theme tokens ---------- */
+:root {
+  --edge-gold: #f2ca50;
+  --edge-gold-bright: #ffe088;
+  --edge-gold-deep: #c5972e;
+
+  /* DARK (default) */
+  --edge-bg: #131313;
+  --edge-bg-pure: #000000;
+  --edge-on-surface: #e2e2e2;
+  --edge-on-surface-variant: #d0c5af;
+  --edge-surface: #1f1f1f;
+  --edge-surface-low: #1b1b1b;
+  --edge-surface-high: #2a2a2a;
+  --edge-surface-highest: #353535;
+  --edge-outline-variant: #4d4635;
+  --edge-glass-bg: rgba(28, 28, 28, 0.6);
+  --edge-glass-border: rgba(210, 205, 175, 0.12);
+  --edge-vignette-end: rgba(19, 19, 19, 1);
+  --edge-primary-on: #3c2f00;
+}
+
+:root[data-theme="light"] {
+  --edge-bg: #f5f1e8;
+  --edge-bg-pure: #ffffff;
+  --edge-on-surface: #1a1714;
+  --edge-on-surface-variant: #5a4f2e;
+  --edge-surface: #ece6d8;
+  --edge-surface-low: #efeadd;
+  --edge-surface-high: #e1d9c5;
+  --edge-surface-highest: #cfc4a8;
+  --edge-outline-variant: rgba(80, 64, 24, 0.25);
+  --edge-glass-bg: rgba(255, 252, 244, 0.75);
+  --edge-glass-border: rgba(80, 64, 24, 0.18);
+  --edge-vignette-end: rgba(245, 241, 232, 0.96);
+  --edge-primary-on: #ffffff;
+}
+
+/* ---------- Apply theme to Tailwind utility classes ---------- */
+.bg-background, body.bg-background { background-color: var(--edge-bg) !important; }
+.text-on-surface { color: var(--edge-on-surface) !important; }
+.text-on-surface-variant { color: var(--edge-on-surface-variant) !important; }
+.text-on-surface-variant\/60 { color: color-mix(in srgb, var(--edge-on-surface-variant) 60%, transparent) !important; }
+.text-on-surface-variant\/40 { color: color-mix(in srgb, var(--edge-on-surface-variant) 40%, transparent) !important; }
+.bg-surface-container { background-color: var(--edge-surface) !important; }
+.bg-surface-container-low { background-color: var(--edge-surface-low) !important; }
+.bg-surface-container-high { background-color: var(--edge-surface-high) !important; }
+.bg-surface-container-highest { background-color: var(--edge-surface-highest) !important; }
+.border-outline-variant\/30 { border-color: color-mix(in srgb, var(--edge-outline-variant) 50%, transparent) !important; }
+
+.text-primary { color: var(--edge-gold) !important; }
+.bg-primary { background-color: var(--edge-gold) !important; }
+.border-primary { border-color: var(--edge-gold) !important; }
+.text-on-primary { color: var(--edge-primary-on) !important; }
+.bg-primary\/5 { background-color: color-mix(in srgb, var(--edge-gold) 5%, transparent) !important; }
+.bg-primary\/10 { background-color: color-mix(in srgb, var(--edge-gold) 10%, transparent) !important; }
+.bg-primary\/20 { background-color: color-mix(in srgb, var(--edge-gold) 20%, transparent) !important; }
+.bg-primary\/30 { background-color: color-mix(in srgb, var(--edge-gold) 30%, transparent) !important; }
+.bg-primary\/40 { background-color: color-mix(in srgb, var(--edge-gold) 40%, transparent) !important; }
+.bg-primary\/50 { background-color: color-mix(in srgb, var(--edge-gold) 50%, transparent) !important; }
+.border-primary\/20 { border-color: color-mix(in srgb, var(--edge-gold) 25%, transparent) !important; }
+.border-primary\/30 { border-color: color-mix(in srgb, var(--edge-gold) 30%, transparent) !important; }
+
+/* Glass panels follow theme */
+.glass-panel, .glass-effect {
+  background: var(--edge-glass-bg) !important;
+  border-color: var(--edge-glass-border) !important;
+}
+
+/* Light-mode-specific fine tuning */
+:root[data-theme="light"] body { background-color: var(--edge-bg) !important; color: var(--edge-on-surface) !important; }
+:root[data-theme="light"] .text-white { color: var(--edge-on-surface) !important; }
+:root[data-theme="light"] .text-primary { color: var(--edge-gold-deep) !important; }
+:root[data-theme="light"] .bg-primary { background-color: var(--edge-gold-deep) !important; }
+:root[data-theme="light"] .border-primary { border-color: var(--edge-gold-deep) !important; }
+:root[data-theme="light"] .hero-vignette {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.45) 40%, var(--edge-vignette-end) 95%) !important;
+}
+:root[data-theme="light"] .grayscale { filter: grayscale(0.6) brightness(1.05) !important; }
+:root[data-theme="light"] .opacity-60 { opacity: 0.4 !important; }
+:root[data-theme="light"] .metallic-text {
+  background: linear-gradient(135deg, #c5972e 0%, #e8b939 25%, #a07a18 50%, #c5972e 75%, #e8b939 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+:root[data-theme="light"] header.fixed { background-color: rgba(245, 241, 232, 0.85) !important; }
+:root[data-theme="light"] nav.fixed { background-color: rgba(245, 241, 232, 0.85) !important; border-color: rgba(80, 64, 24, 0.15) !important; }
+
+/* ---------- Touch optimisation ---------- */
+* { -webkit-tap-highlight-color: transparent; }
+
+html, body { overscroll-behavior-y: contain; }
+
+button, a, [role="button"], label, input, textarea, select, summary {
+  touch-action: manipulation;
+}
+
+/* Snappier tap feedback for touch devices */
+@media (hover: none) and (pointer: coarse) {
+  button, a, [role="button"] {
+    transition: transform 0.08s ease-out, opacity 0.12s ease-out, background-color 0.15s ease;
+  }
+  button:active, a:active, [role="button"]:active {
+    transform: scale(0.96);
+  }
+}
+
+/* Larger nav tap targets */
+nav a, nav button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent iOS input zoom (>=16px) */
+input, textarea, select { font-size: max(16px, 1em); }
+
+/* ---------- Floating control panel (theme + lang) ---------- */
+.edge-ctl {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 14px);
+  right: 16px;
+  z-index: 9998;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--edge-glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--edge-glass-border);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.18);
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  animation: edge-ctl-in 0.6s cubic-bezier(0.19, 1, 0.22, 1) 0.2s both;
+}
+@keyframes edge-ctl-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+body.is-dashboard .edge-ctl { top: calc(env(safe-area-inset-top, 0px) + 76px); }
+body.is-splash .edge-ctl { display: none; }
+
+.edge-ctl button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--edge-on-surface);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0 10px;
+  height: 32px;
+  min-width: 36px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.08s ease;
+  touch-action: manipulation;
+}
+.edge-ctl button[aria-pressed="true"] {
+  background: var(--edge-gold);
+  color: var(--edge-primary-on);
+}
+.edge-ctl button:active { transform: scale(0.92); }
+.edge-ctl .sep { width: 1px; height: 18px; background: var(--edge-glass-border); }
+.edge-ctl svg { width: 14px; height: 14px; }
+.edge-ctl .lang { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.18em; }
+
+/* Hide bottom-right install button when control panel overlaps top - install stays bottom */
+#edge-install-btn { z-index: 9997; }
+
+/* Smooth focus ring for accessibility */
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--edge-gold);
+  outline-offset: 3px;
+}
