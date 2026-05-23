@@ -3,7 +3,7 @@
 <html class="dark" lang="en"><head>
     <!-- PWA -->
     <meta name="theme-color" content="#131313"/>
-    <meta name="color-scheme" content="dark"/>
+    <meta name="color-scheme" content="dark light"/>
     <meta name="application-name" content="EDGE"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="/icons/favicon.ico"/>
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/assets/edge-ui.css"/>
     <style>
       /* Hide Vercel preview toolbar / live-feedback widget for clean demo */
       vercel-live-feedback, vercel-toolbar, [data-vercel-toolbar],
@@ -170,7 +171,7 @@
     }
   </style>
   </head>
-<body class="min-h-screen flex items-center justify-center relative p-container-margin-mobile md:p-container-margin-desktop overflow-hidden">
+<body class="is-login min-h-screen flex items-center justify-center relative p-container-margin-mobile md:p-container-margin-desktop overflow-hidden">
 <!-- Atmospheric Background Elements -->
 <div class="glow-orb w-96 h-96 bg-primary/5 -top-20 -left-20"></div>
 <div class="glow-orb w-80 h-80 bg-primary/10 bottom-0 -right-20"></div>
@@ -179,7 +180,7 @@
 <!-- Brand Identity -->
 <header class="mb-12 text-center"><a href="/" class="block no-underline" aria-label="Back to EDGE">
 <h1 class="font-display-hero text-display-hero text-primary tracking-tighter mb-2">EDGE</h1>
-<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em]">High Performance Management</p></a>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-[0.2em]" data-i18n="High Performance Management">High Performance Management</p></a>
 </header>
 <!-- Login Form Container -->
 <div class="glass-panel w-full rounded-xl p-8 md:p-10 relative overflow-hidden">
@@ -189,17 +190,17 @@
 <div class="space-y-6">
 <!-- Email Field -->
 <div class="space-y-2 group">
-<label class="block font-label-caps text-label-caps text-secondary ml-1" for="email">Member Email</label>
+<label class="block font-label-caps text-label-caps text-secondary ml-1" for="email" data-i18n="Member Email">Member Email</label>
 <div class="relative transition-all duration-300 border-b border-titanium-silver/20 focus-within:border-primary">
-<input class="w-full bg-transparent border-none text-on-surface font-body-lg text-body-lg py-3 px-1 focus:ring-0 placeholder:text-on-surface-variant/30" id="email" name="email" placeholder="name@luxury-fitness.com" type="email"/>
+<input class="w-full bg-transparent border-none text-on-surface font-body-lg text-body-lg py-3 px-1 focus:ring-0 placeholder:text-on-surface-variant/30" id="email" name="email" placeholder="name@luxury-fitness.com" data-i18n-attr="placeholder:name@luxury-fitness.com" type="email"/>
 <div class="absolute bottom-0 left-0 h-[1px] w-0 bg-primary transition-all duration-500 group-focus-within:w-full"></div>
 </div>
 </div>
 <!-- Password Field -->
 <div class="space-y-2 group">
 <div class="flex justify-between items-center px-1">
-<label class="block font-label-caps text-label-caps text-secondary" for="password">Access Key</label>
-<a class="font-label-caps text-[10px] text-on-surface-variant/60 hover:text-primary transition-colors duration-300" href="#">Forgot?</a>
+<label class="block font-label-caps text-label-caps text-secondary" for="password" data-i18n="Access Key">Access Key</label>
+<a class="font-label-caps text-[10px] text-on-surface-variant/60 hover:text-primary transition-colors duration-300" href="#" data-i18n="Forgot?">Forgot?</a>
 </div>
 <div class="relative transition-all duration-300 border-b border-titanium-silver/20 focus-within:border-primary">
 <input class="w-full bg-transparent border-none text-on-surface font-body-lg text-body-lg py-3 px-1 focus:ring-0 placeholder:text-on-surface-variant/30" id="password" name="password" placeholder="••••••••" type="password"/>
@@ -209,12 +210,12 @@
 </div>
 <!-- Primary Action -->
 <button class="w-full bg-primary text-on-primary font-headline-md text-headline-md py-4 rounded-lg active:scale-[0.98] transition-all duration-300 premium-btn-shadow hover:brightness-110" type="submit">
-                    SIGN IN
+                    <span data-i18n="SIGN IN">SIGN IN</span>
                 </button>
 <!-- Divider -->
 <div class="flex items-center gap-4 py-2">
 <div class="h-[1px] flex-1 bg-titanium-silver/10"></div>
-<span class="font-label-caps text-label-caps text-on-surface-variant/40">Secure Identity</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant/40" data-i18n="Secure Identity">Secure Identity</span>
 <div class="h-[1px] flex-1 bg-titanium-silver/10"></div>
 </div>
 <!-- Social Logins -->
@@ -233,8 +234,8 @@
 <!-- Secondary Actions -->
 <footer class="mt-8 text-center space-y-4">
 <p class="font-body-md text-body-md text-on-surface-variant/60">
-                New to the community? 
-                <a class="text-primary font-semibold hover:underline decoration-primary/30 underline-offset-4 ml-1" href="/welcome">Request Membership</a>
+                <span data-i18n="New to the community?">New to the community?</span> 
+                <a class="text-primary font-semibold hover:underline decoration-primary/30 underline-offset-4 ml-1" href="/welcome" data-i18n="Request Membership">Request Membership</a>
 </p>
 <div class="flex items-center justify-center gap-6 opacity-40">
 <span class="font-label-data text-label-data">EN / USD</span>
@@ -272,5 +273,6 @@
             });
         });
     </script>
+    <script src="/assets/edge-ui.js" defer></script>
     <script src="/assets/pwa.js" defer></script>
 </body></html>

@@ -1,5 +1,5 @@
 // EDGE PWA service worker
-const VERSION = "v1.0.1";
+const VERSION = "v1.1.0";
 const PRECACHE = `edge-precache-${VERSION}`;
 const RUNTIME = `edge-runtime-${VERSION}`;
 
@@ -11,6 +11,8 @@ const PRECACHE_URLS = [
   "/offline",
   "/manifest.webmanifest",
   "/assets/pwa.js",
+  "/assets/edge-ui.js",
+  "/assets/edge-ui.css",
   "/icons/icon-192.png",
   "/icons/icon-512.png",
   "/icons/icon-maskable-512.png",

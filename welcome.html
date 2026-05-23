@@ -3,7 +3,7 @@
 <html class="dark" lang="en"><head>
     <!-- PWA -->
     <meta name="theme-color" content="#131313"/>
-    <meta name="color-scheme" content="dark"/>
+    <meta name="color-scheme" content="dark light"/>
     <meta name="application-name" content="EDGE"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
@@ -20,6 +20,7 @@
     <link rel="shortcut icon" href="/icons/favicon.ico"/>
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"/>
+    <link rel="stylesheet" href="/assets/edge-ui.css"/>
     <style>
       /* Hide Vercel preview toolbar / live-feedback widget for clean demo */
       vercel-live-feedback, vercel-toolbar, [data-vercel-toolbar],
@@ -162,7 +163,7 @@
   </style>
   <title>EDGE | Welcome</title>
 </head>
-<body class="bg-background text-on-surface selection:bg-primary/30 antialiased overflow-hidden">
+<body class="is-welcome bg-background text-on-surface selection:bg-primary/30 antialiased overflow-hidden">
 <!-- Hero Background Layer -->
 <div class="fixed inset-0 z-0">
 <img alt="Elite Fitness Background" class="w-full h-full object-cover grayscale opacity-60" data-alt="A cinematic, high-contrast portrait of an elite professional athlete in a graphite-toned gym environment. The lighting is moody and dramatic, with deep shadows and rim lighting emphasizing muscular definition. The color palette is strictly desaturated with subtle metallic silver highlights. The atmosphere is quiet, intense, and prestigious, reflecting a high-end private fitness club aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDj2e4Ec2s1T5DlV3_6lvSJVNv-Zaj8uL70zVpkWrFlCsL6x7lWdLyEeAk8t8L3_rHu1OmFpGNXMGhV3XtGzJFAlX9Gl-R11kyxj0sSvfMUyqgvnryg-_ZlnZRVA5AgE3E1loUV4rQXrPcFYS_L6Eky3djlFtU6xXLp_oGOmQMpYg7FD5o90uhHLPkd8t5vIFEMzU-zmMA24rJvdEHap3KKqUSeRKkVTeuNBIafZICbCctUMQD3WoP4AfAlBNdIv7ejtczNPNLuz74"/>
@@ -173,25 +174,25 @@
 <main class="relative z-10 flex flex-col min-h-screen justify-end px-container-margin-mobile md:px-container-margin-desktop pb-16 md:pb-24 max-w-[1440px] mx-auto">
 <!-- Welcome Brand Header -->
 <header class="mb-12 animate-in fade-in slide-in-from-bottom-8 duration-1000">
-<h2 class="font-label-caps text-label-caps text-primary tracking-[0.2em] mb-4">THE FUTURE OF PERFORMANCE</h2>
+<h2 class="font-label-caps text-label-caps text-primary tracking-[0.2em] mb-4" data-i18n="THE FUTURE OF PERFORMANCE">THE FUTURE OF PERFORMANCE</h2>
 <h1 class="font-display-hero text-display-hero md:text-[64px] text-white leading-tight max-w-2xl">
-                WELCOME TO THE <span class="text-primary italic">EDGE</span> ECOSYSTEM.
+                <span data-i18n="WELCOME TO THE">WELCOME TO THE</span> <span class="text-primary italic">EDGE</span> <span data-i18n="ECOSYSTEM.">ECOSYSTEM.</span>
             </h1>
 <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-6 leading-relaxed">
-                Precision management for the world's most disciplined athletes. Elevate your training with cinematic data insights and elite-tier club operations.
+                <span data-i18n="Precision management for the world's most disciplined athletes. Elevate your training with cinematic data insights and elite-tier club operations.">Precision management for the world's most disciplined athletes. Elevate your training with cinematic data insights and elite-tier club operations.</span>
             </p>
 </header>
 <!-- Actions Cluster -->
 <div class="flex flex-col md:flex-row items-stretch md:items-center gap-gutter animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
 <!-- Primary Action -->
 <a href="/dashboard" class="group relative flex items-center justify-center gap-3 bg-primary text-on-primary font-headline-md text-headline-md px-10 py-6 rounded-xl gold-glow transition-all duration-300 active:scale-95 overflow-hidden no-underline">
-<span class="relative z-10">Explore Memberships</span>
+<span class="relative z-10" data-i18n="Explore Memberships">Explore Memberships</span>
 <span class="material-symbols-outlined relative z-10 text-headline-md group-hover:translate-x-1 transition-transform">arrow_forward</span>
 <div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
 </a>
 <!-- Secondary Action -->
 <a href="/login" class="group flex items-center justify-center gap-3 glass-effect text-on-surface font-headline-md text-headline-md px-10 py-6 rounded-xl hover:bg-white/5 transition-all duration-300 active:scale-95 no-underline">
-<span>Sign In</span>
+<span data-i18n="Sign In">Sign In</span>
 <span class="material-symbols-outlined text-headline-md opacity-60 group-hover:opacity-100 transition-opacity">login</span>
 </a>
 </div>
@@ -199,24 +200,24 @@
 <div class="mt-16 flex items-center gap-12 opacity-40 animate-in fade-in duration-1000 delay-500">
 <div class="flex items-center gap-3">
 <span class="font-label-data text-label-data text-primary">01</span>
-<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Elite Access</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase" data-i18n="Elite Access">Elite Access</span>
 </div>
 <div class="h-px w-12 bg-outline-variant/30"></div>
 <div class="flex items-center gap-3">
 <span class="font-label-data text-label-data text-primary">02</span>
-<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Performance Tracking</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase" data-i18n="Performance Tracking">Performance Tracking</span>
 </div>
 <div class="hidden md:flex h-px w-12 bg-outline-variant/30"></div>
 <div class="hidden md:flex items-center gap-3">
 <span class="font-label-data text-label-data text-primary">03</span>
-<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">Exclusive Network</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase" data-i18n="Exclusive Network">Exclusive Network</span>
 </div>
 </div>
 </main>
 <!-- Interactive Background Micro-Light -->
 <script>
         const bloom = document.querySelector('.atmospheric-bloom');
-        document.addEventListener('mousemove', (e) => {
+        document.addEventListener('pointermove', (e) => {
             const x = e.clientX;
             const y = e.clientY;
             
@@ -227,5 +228,6 @@
             }, { duration: 3000, fill: "forwards", easing: "ease-out" });
         });
     </script>
+    <script src="/assets/edge-ui.js" defer></script>
     <script src="/assets/pwa.js" defer></script>
 </body></html>
