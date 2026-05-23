@@ -1,5 +1,54 @@
 // EDGE PWA bootstrap: SW registration + install prompt UX
 (function () {
+  // --- Block Vercel preview toolbar / live-feedback widget for clean demo ---
+  (function killVercelToolbar() {
+    const css = document.createElement("style");
+    css.setAttribute("data-edge", "no-vercel-toolbar");
+    css.textContent = [
+      "vercel-live-feedback,",
+      "vercel-toolbar,",
+      "[data-vercel-toolbar],",
+      "[id^='__vercel'],",
+      "[class*='vercel-toolbar'],",
+      "[class*='vercel-live'],",
+      "iframe[src*='vercel.live'],",
+      "iframe[src*='vercel.com/feedback']",
+      "{ display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }"
+    ].join(" ");
+    (document.head || document.documentElement).appendChild(css);
+
+    const kill = (root) => {
+      const sel =
+        "vercel-live-feedback, vercel-toolbar, [data-vercel-toolbar], " +
+        "[id^='__vercel'], [class*='vercel-toolbar'], [class*='vercel-live'], " +
+        "iframe[src*='vercel.live'], iframe[src*='vercel.com/feedback'], " +
+        "script[src*='vercel.live']";
+      root.querySelectorAll && root.querySelectorAll(sel).forEach((n) => n.remove());
+    };
+    kill(document);
+    const mo = new MutationObserver((muts) => {
+      for (const m of muts) {
+        m.addedNodes.forEach((n) => {
+          if (n.nodeType !== 1) return;
+          const tag = n.tagName && n.tagName.toLowerCase();
+          if (
+            tag === "vercel-live-feedback" ||
+            tag === "vercel-toolbar" ||
+            (tag === "iframe" && n.src && /vercel\.(live|com\/feedback)/.test(n.src)) ||
+            (tag === "script" && n.src && /vercel\.live/.test(n.src)) ||
+            (n.id && /^__vercel/.test(n.id)) ||
+            (n.className && /vercel-(toolbar|live)/.test(String(n.className)))
+          ) {
+            n.remove();
+          } else {
+            kill(n);
+          }
+        });
+      }
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  })();
+
   if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
       navigator.serviceWorker

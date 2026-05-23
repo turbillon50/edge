@@ -20,6 +20,14 @@
     <link rel="shortcut icon" href="/icons/favicon.ico"/>
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png"/>
     <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png"/>
+    <style>
+      /* Hide Vercel preview toolbar / live-feedback widget for clean demo */
+      vercel-live-feedback, vercel-toolbar, [data-vercel-toolbar],
+      [id^="__vercel"], [class*="vercel-toolbar"], [class*="vercel-live"],
+      iframe[src*="vercel.live"], iframe[src*="vercel.com/feedback"] {
+        display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important;
+      }
+    </style>
 
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" name="viewport"/>

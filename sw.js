@@ -1,5 +1,5 @@
 // EDGE PWA service worker
-const VERSION = "v1.0.0";
+const VERSION = "v1.0.1";
 const PRECACHE = `edge-precache-${VERSION}`;
 const RUNTIME = `edge-runtime-${VERSION}`;
 
